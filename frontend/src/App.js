@@ -136,7 +136,13 @@ const css = `
   /* COVER LETTER PAGE */
   .cl-page { min-height:100vh; padding-top:60px; display:grid; grid-template-columns:1fr 1fr; }
   .cl-left { padding:56px 48px 56px 64px; border-right:0.5px solid var(--border); overflow-y:auto; }
-  .cl-right { padding:56px 48px; background:linear-gradient(135deg,#f0f0ff,#f8f0ff); display:flex; flex-direction:column; overflow-y:auto; min-height:100vh; }
+  .cl-right {
+  padding:56px 48px;
+  background:linear-gradient(135deg,#f0f0ff,#f8f0ff);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
   .cl-title { font-size:clamp(28px,3vw,42px); font-weight:700; letter-spacing:-0.03em; margin-bottom:10px; }
   .cl-sub { font-size:14px; color:var(--muted); margin-bottom:32px; line-height:1.65; }
   .tone-row { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
@@ -144,7 +150,15 @@ const css = `
   .tone-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
 .tone-btn.active:hover { background:#4f46e5; color:#fff; border-color:#4f46e5; }
 .tone-btn:not(.active):hover { border-color:var(--accent); color:var(--accent); }
-.cl-output { background:var(--surface); border-radius:16px; border:0.5px solid var(--border); padding:28px; flex:1; min-height:400px; position:relative; box-shadow:0 4px 24px rgba(0,0,0,0.06); overflow-y:auto; }  .cl-output-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:360px; text-align:center; gap:12px; }
+.cl-output {
+  background:var(--surface);
+  border-radius:16px;
+  border:0.5px solid var(--border);
+  padding:28px;
+  min-height:400px;
+  position:relative;
+  box-shadow:0 4px 24px rgba(0,0,0,0.06);
+}
   .cl-placeholder-icon { font-size:48px; opacity:0.3; }
   .cl-placeholder-text { font-size:14px; color:var(--hint); }
   .cl-letter { font-size:13px; line-height:1.9; color:var(--text); white-space:pre-wrap; }
@@ -520,6 +534,7 @@ function CoverLetterPage({ onBack }) {
       tone: tone,
     });
     if (r2.data && r2.data.cover_letter) {
+      console.log(r2.data);
       setResult(r2.data);
     } else {
       setError("Generation failed. Please try again.");
