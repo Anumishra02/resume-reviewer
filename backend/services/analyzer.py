@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 def check_quantification(text: str) -> dict:
     bullets = re.findall(r'[•\-\*]\s*(.+)', text)
